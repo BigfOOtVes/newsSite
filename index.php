@@ -9,7 +9,11 @@
 </head>
 <body>
 	<h1>Новостной сайт</h1>
+	<a id="nav" href="index.php">Главная</a>
 	<?php 
+		if (isset($_GET['id']))
+			echo "Присутствуем ключ id";
+
 		$art = getAllArticles();
 		for ($i = 0; $i < count($art); $i++) {
 			$id = $art[$i]['id'];

@@ -26,3 +26,14 @@ h2 {
 p {
 	text-align: justify;
 }
+
+a {
+	text-decoration: none;
+}
+
+#nav {
+	font-size: 25px;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+}
