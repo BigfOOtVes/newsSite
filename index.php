@@ -1,9 +1,22 @@
+<?php require_once "func/func.php"; ?>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>News site</title>
+	<meta charset="UTF-8">
+	<title>News</title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 <body>
-  <h1>NEWS</h1>
+	<h1>Новостной сайт</h1>
+	<?php 
+		$art = getAllArticles();
+		for ($i = 0; $i < count($art); $i++) {
+			$id = $art[$i]['id'];
+			$title = $art[$i]['title'];
+			$introText = $art[$i]['introText'];
+			include "views/introNewsAll.php";
+		}
+	?>
 </body>
 </html>
