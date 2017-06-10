@@ -8,15 +8,20 @@ body h1 {
 	text-align: center;
 }
 
-div {
+#introText {
 	width: 60%;
 	margin: 10px auto;
 	border: 2px solid black;
 	padding: 20px;
+	border-radius: 20px;
 }
 
-h1 {
-	
+#article {
+	width: 60%;
+	margin: 10px auto;
+	border: 2px solid black;
+	padding: 20px;
+	border-radius: 20px;
 }
 
 h2 {
@@ -31,9 +36,16 @@ a {
 	text-decoration: none;
 }
 
-#nav {
+#navDiv {
+	text-align: center;
+	border: 1px solid black;
+	padding: 5px;
+
+}
+.nav {
 	font-size: 25px;
 	text-decoration: none;
-	display: block;
-	text-align: center;
+	align-items: center;
+	border: 1px solid black;
+
 }

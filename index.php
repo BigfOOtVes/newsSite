@@ -9,17 +9,27 @@
 </head>
 <body>
 	<h1>Новостной сайт</h1>
-	<a id="nav" href="index.php">Главная</a>
+	<div id="navDiv">
+		<a class="nav" href="index.php">Главная</a>
+		<a class="nav" href="?action=1">Добавить новость</a>
+	</div>
 	<?php 
-		if (isset($_GET['id']))
-			echo "Присутствуем ключ id";
 
-		$art = getAllArticles();
-		for ($i = 0; $i < count($art); $i++) {
-			$id = $art[$i]['id'];
-			$title = $art[$i]['title'];
-			$introText = $art[$i]['introText'];
-			include "views/introNewsAll.php";
+		if (!empty($_GET['id'])) {
+			$art = getIdArticle($_GET['id']);
+			$title = $art['title'];
+			$text = $art['text'];
+			include "views/article.php";
+		} else if (!empty($_GET['action'])) {
+			include "views/addNews.php";
+		} else {
+			$art = getAllArticles();
+			for ($i = 0; $i < count($art); $i++) {
+				$id = $art[$i]['id'];
+				$title = $art[$i]['title'];
+				$introText = $art[$i]['introText'];
+				include "views/introNewsAll.php";
+			}
 		}
 	?>
 </body>

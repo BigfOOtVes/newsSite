@@ -1,4 +1,4 @@
-<div>
+<div id="introText">
 	<h2><?php echo $title; ?></h2>
 	<p><?php echo $introText; ?></p>
 	<br>

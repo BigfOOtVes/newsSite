@@ -1,4 +1,5 @@
 <?php
+
 $mysql;
 
 function connectDB() {
@@ -14,10 +15,19 @@ function closeDB() {
 function getAllArticles() {
 	global $mysql;
 	connectDB();
-	$sql = 'SELECT * FROM introArticles';
+	$sql = "SELECT * FROM introArticles";
 	$res = $mysql->query($sql);
 	closeDB();
 	return resToArr($res);
+}
+
+function getIdArticle($id) {
+	global $mysql;
+	connectDB();
+	$sql = "SELECT * FROM articles WHERE id='$id'"; 
+	$res = $mysql->query($sql);
+	closeDB();
+	return $res->fetch_assoc();
 }
 
 function resToArr($res) {
