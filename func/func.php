@@ -30,6 +30,15 @@ function getIdArticle($id) {
 	return $res->fetch_assoc();
 }
 
+function addNews ($title, $intro, $text) {
+	global $mysql;
+	connectDB();
+	$sqlIntroArticle = "INSERT INTO introArticles (title, introText) VALUES ('$title', '$intro')";
+	$sqlArticle = "INSERT INTO articles (title, text) VALUES ('$title', '$text')";
+	$mysql->query($sqlIntroArticle);
+	$mysql->query($sqlArticle);
+}
+
 function resToArr($res) {
 	$arr = [];
 	while ($row = $res->fetch_assoc())

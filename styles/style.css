@@ -45,7 +45,12 @@ a {
 .nav {
 	font-size: 25px;
 	text-decoration: none;
-	align-items: center;
 	border: 1px solid black;
-
+	padding: 0 7px;
 }
+
+#addNews {
+	text-align: center;
+	padding-top: 100px;
+}
+

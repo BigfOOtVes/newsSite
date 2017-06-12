@@ -6,6 +6,22 @@
 	<meta charset="UTF-8">
 	<title>News</title>
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<script type="text/javascript">
+		
+		function checkForm(form) {
+			const title = form.title.value;
+			const intro = form.intro.value;
+			const text = form.text.value;
+			
+			if (title.length < 4 || intro.length < 4 || text.length < 4) {
+				alert ("Введены не корректные данные");
+				return false;
+			} else
+				alert("Новость добавлена");
+			return true;
+		}
+
+	</script>
 </head>
 <body>
 	<h1>Новостной сайт</h1>
