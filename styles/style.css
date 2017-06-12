@@ -1,7 +1,7 @@
 body {
 	font-family: Arial;
 	font-size: 17px;
-
+	background-color: #808080;
 }
 
 body h1 {
@@ -14,6 +14,7 @@ body h1 {
 	border: 2px solid black;
 	padding: 20px;
 	border-radius: 20px;
+	background-color: #D2691E;
 }
 
 #article {
@@ -22,10 +23,11 @@ body h1 {
 	border: 2px solid black;
 	padding: 20px;
 	border-radius: 20px;
+	background-color: #D2691E;
 }
 
-h2 {
-
+h2, h1 {
+	text-decoration: underline;
 }
 
 p {
@@ -34,12 +36,17 @@ p {
 
 a {
 	text-decoration: none;
+	background-color: #D2691E;
+}
+a:visited {
+	color: black;
 }
 
 #navDiv {
 	text-align: center;
 	border: 1px solid black;
 	padding: 5px;
+	text-shadow: 1px 1px 2px black;
 
 }
 .nav {
@@ -57,4 +64,12 @@ a {
 form {
 	font-size: 25px;
 	font-weight: bold;
+}
+
+label {
+	padding: 5px;
+}
+
+input, textarea {
+	margin-top: 7px;
 }
