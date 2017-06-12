@@ -54,3 +54,7 @@ a {
 	padding-top: 100px;
 }
 
+form {
+	font-size: 25px;
+	font-weight: bold;
+}
