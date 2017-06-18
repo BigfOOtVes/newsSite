@@ -1,11 +1,12 @@
 body {
 	font-family: Arial;
 	font-size: 17px;
-	background-color: #808080;
+	background-color: black;
 }
 
 body h1 {
 	text-align: center;
+	color: green;
 }
 
 #introText {
