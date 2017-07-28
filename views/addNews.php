@@ -4,7 +4,7 @@
 		<br>
 		<input type="text" name="title">
 		<br>
-		<label for="intro">Начало новости</label>
+		<label for="intro">Втупление новости</label>
 		<br>
 		<textarea cols="60" rows="10" name="intro"></textarea>
 		<br>

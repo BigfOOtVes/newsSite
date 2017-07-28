@@ -15,7 +15,7 @@ function closeDB() {
 function getAllArticles() {
 	global $mysql;
 	connectDB();
-	$sql = "SELECT * FROM introArticles";
+	$sql = "SELECT * FROM `introArticles`";
 	$res = $mysql->query($sql);
 	closeDB();
 	return resToArr($res);
