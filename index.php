@@ -1,4 +1,7 @@
-<?php require_once "func/func.php"; ?>
+<?php 
+	require_once "func/func.php";
+	require_once "func/sql.php"; 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,20 +35,32 @@
 	<?php 
 
 		if (!empty($_GET['id'])) {
-			$art = getIdArticle($_GET['id']);
+
+			//$art = getIdArticle($_GET['id']);
+			$sql = new Sql();
+			$art = $sql->getArticle($_GET['id']);
+			
 			$title = $art['title'];
 			$text = $art['text'];
+
 			include "views/article.php";
+
 		} else if (!empty($_GET['action'])) {
 			include "views/addNews.php";
 		} else {
-			$art = getAllArticles();
-			for ($i = 0; $i < count($art); $i++) {
-				$id = $art[$i]['id'];
-				$title = $art[$i]['title'];
-				$introText = $art[$i]['introText'];
+
+			//$arts = getAllArticles();
+			$sql = new Sql();
+			$arts = $sql->getArticles();
+
+			for ($i = 0; $i < count($arts); $i++) {
+				$id = $arts[$i]['id'];
+				$title = $arts[$i]['title'];
+				$introText = $arts[$i]['introText'];
+				
 				include "views/introNewsAll.php";
 			}
+
 		}
 	?>
 </body>

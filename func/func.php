@@ -24,7 +24,7 @@ function getAllArticles() {
 function getIdArticle($id) {
 	global $mysql;
 	connectDB();
-	$sql = "SELECT * FROM articles WHERE id='$id'"; 
+	$sql = "SELECT * FROM `articles` WHERE id='$id'"; 
 	$res = $mysql->query($sql);
 	closeDB();
 	return $res->fetch_assoc();
@@ -33,8 +33,8 @@ function getIdArticle($id) {
 function addNews ($title, $intro, $text) {
 	global $mysql;
 	connectDB();
-	$sqlIntroArticle = "INSERT INTO introArticles (title, introText) VALUES ('$title', '$intro')";
-	$sqlArticle = "INSERT INTO articles (title, text) VALUES ('$title', '$text')";
+	$sqlIntroArticle = "INSERT INTO `introArticles` (title, introText) VALUES ('$title', '$intro')";
+	$sqlArticle = "INSERT INTO `articles` (title, text) VALUES ('$title', '$text')";
 	$mysql->query($sqlIntroArticle);
 	$mysql->query($sqlArticle);
 }
