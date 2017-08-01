@@ -37,29 +37,37 @@ require_once "start.php";
 
 			//$art = getIdArticle($_GET['id']);
 			$sql = new Sql();
-			$art = $sql->getArticle($_GET['id']);
+			$article = $sql->getArticle($_GET['id']);
+			echo print_r($article);
+			$view = new ArticleClass ($article);
+			$view->render();
 			
-			$title = $art['title'];
-			$text = $art['text'];
+			/*
+			$title = $article['title'];
+			$text = $article['text'];
 
 			include "views/article.php";
+			*/
 
 		} else if (!empty($_GET['action'])) {
 			include "views/addNews.php";
 		} else {
 
-			//$arts = getAllArticles();
+			//$articles = getAllArticles();
 			$sql = new Sql();
-			$arts = $sql->getArticles();
+			$articles = $sql->getArticles();
+			$view = new ArticleClass ($articles);
+			$view->render();
 
-			for ($i = 0; $i < count($arts); $i++) {
-				$id = $arts[$i]['id'];
-				$title = $arts[$i]['title'];
-				$introText = $arts[$i]['introText'];
+			/*
+			for ($i = 0; $i < count($articles); $i++) {
+				$id = $articles[$i]['id'];
+				$title = $articles[$i]['title'];
+				$introText = $articles[$i]['introText'];
 				
 				include "views/introNewsAll.php";
 			}
-
+			*/
 		}
 	?>
 </body>

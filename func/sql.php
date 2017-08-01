@@ -19,7 +19,7 @@ class Sql {
 
 	public function getArticle ($id) {
 
-		$res = $this->mySql->query("SELECT * FROM `articles` WHERE id='$id'");
+		$res = $this->mySql->query("SELECT `title`, `text` FROM `articles` WHERE id='$id'");
 		return $res->fetch_assoc();
 
 	}
