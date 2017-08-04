@@ -20,10 +20,9 @@ class Routes {
 
 	public function render ($args) {
 		
-		if (count($args) == 0) {
+		if (count($args) === 0) {
 			return call_user_func($this->arrRoutes['/']);
-		}
-		else {
+		} else {
 			$key = key($args);
 			$id = $args[$key];
 			return call_user_func($this->arrRoutes[$key]($id));

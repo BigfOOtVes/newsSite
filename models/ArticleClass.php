@@ -17,12 +17,12 @@ class ArticleClass {
 				$id = $this->arr[$i]['id'];
 				$title = $this->arr[$i]['title'];
 				$introText = $this->arr[$i]['introText'];
-				include "views/introNewsAll.php";
+				include __DIR__ . "/../views/introNewsAll.php";
 			}
 		} else {
 			$title = $this->arr['title'];
 			$text = $this->arr['text'];
-			include "views/article.php";
+			include __DIR__ . "/../views/article.php";
 		}
 		return;
 
