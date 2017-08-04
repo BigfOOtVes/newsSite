@@ -32,6 +32,25 @@
 		<a class="nav" href="/?action=1">Добавить новость</a>
 	</div>
 	<?php
+
+		$args = [];
+		parse_str($_SERVER['QUERY_STRING'], $args);
+		
+		$route = new Routes();
+		
+		$route->addRoute("id", function($id) {
+			$sql = new Sql();
+			$article = $sql->getArticle($id);
+			$view = new ArticleClass ($article);
+			$view->render();
+		});
+		
+		$route->addRoute("action", function ($id) {
+			include __DIR__ . "/views/addNews.php";
+		});
+		
+		$route->render($args);
+
 		/*
 		if (!empty($_GET['id'])) {
 
@@ -68,24 +87,6 @@
 				//include "views/introNewsAll.php";
 		}
 		*/
-		$args = [];
-		parse_str($_SERVER['QUERY_STRING'], $args);
-		
-		$route = new Routes();
-		
-		$route->addRoute("id", function($id) {
-			$sql = new Sql();
-			$article = $sql->getArticle($id);
-			$view = new ArticleClass ($article);
-			$view->render();
-		});
-		
-		$route->addRoute("action", function ($id) {
-			include __DIR__ . "/views/addNews.php";
-		});
-		
-		$route->render($args);
-		
 	?>
 </body>
 </html>
