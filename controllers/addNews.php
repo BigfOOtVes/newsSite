@@ -1,6 +1,5 @@
 <?php
-require_once "../func/func.php";
-require_once "../func/sql.php";
+require_once __DIR__ . "/../start.php";
 
 $title = htmlspecialchars($_POST['title']);
 $intro = htmlspecialchars($_POST['intro']);

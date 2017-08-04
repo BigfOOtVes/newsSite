@@ -1,5 +1,5 @@
 <?php 
-require_once "start.php";
+	require_once __DIR__ . "/start.php";
 ?>
 
 <!DOCTYPE html>
@@ -28,11 +28,11 @@ require_once "start.php";
 <body>
 	<h1>Новостной сайт</h1>
 	<div id="navDiv">
-		<a class="nav" href="index.php">Главная</a>
-		<a class="nav" href="?action=1">Добавить новость</a>
+		<a class="nav" href="/">Главная</a>
+		<a class="nav" href="/?action=1">Добавить новость</a>
 	</div>
-	<?php 
-
+	<?php
+		/*
 		if (!empty($_GET['id'])) {
 
 			//$art = getIdArticle($_GET['id']);
@@ -42,12 +42,12 @@ require_once "start.php";
 			$view = new ArticleClass ($article);
 			$view->render();
 			
-			/*
-			$title = $article['title'];
-			$text = $article['text'];
+			
+			//$title = $article['title'];
+			//$text = $article['text'];
 
-			include "views/article.php";
-			*/
+			//include "views/article.php";
+			
 
 		} else if (!empty($_GET['action'])) {
 			include "views/addNews.php";
@@ -59,16 +59,33 @@ require_once "start.php";
 			$view = new ArticleClass ($articles);
 			$view->render();
 
-			/*
-			for ($i = 0; $i < count($articles); $i++) {
-				$id = $articles[$i]['id'];
-				$title = $articles[$i]['title'];
-				$introText = $articles[$i]['introText'];
+			
+			//for ($i = 0; $i < count($articles); $i++) {
+				//$id = $articles[$i]['id'];
+				//$title = $articles[$i]['title'];
+				//$introText = $articles[$i]['introText'];
 				
-				include "views/introNewsAll.php";
-			}
-			*/
+				//include "views/introNewsAll.php";
 		}
+		*/
+		$args = [];
+		parse_str($_SERVER['QUERY_STRING'], $args);
+		
+		$route = new Routes();
+		
+		$route->addRoute("id", function($id) {
+			$sql = new Sql();
+			$article = $sql->getArticle($id);
+			$view = new ArticleClass ($article);
+			$view->render();
+		});
+		
+		$route->addRoute("action", function ($id) {
+			include __DIR__ . "/views/addNews.php";
+		});
+		
+		$route->render($args);
+		
 	?>
 </body>
 </html>
