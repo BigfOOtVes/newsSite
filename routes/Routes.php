@@ -19,7 +19,6 @@ class Routes {
 	}
 
 	public function render ($args) {
-		
 		if (count($args) === 0) {
 			return call_user_func($this->arrRoutes['/']);
 		} else {

@@ -5,13 +5,10 @@ class ArticleClass {
 	private $arr = [];
 
 	public function __construct($data) {
-
 		$this->arr = $data;
-
 	}
 
 	public function render () {
-
 		if (count($this->arr[0]) === 3) {
 			for ($i = 0; $i < count($this->arr); $i ++) {
 				$id = $this->arr[$i]['id'];
@@ -25,6 +22,5 @@ class ArticleClass {
 			include __DIR__ . "/../views/article.php";
 		}
 		return;
-
 	}
 }
