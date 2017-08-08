@@ -6,10 +6,14 @@ class Routes {
 
 	public function __construct() {
 		$this->arrRoutes['/'] = function () {
+			/*
 			$sql = new Sql();
 			$articles = $sql->getArticles();
 			$view = new ArticleClass ($articles);
 			$view->render();
+			*/
+			$data = Article::selectAll();
+			Article::renderAll($data);
 			return;
 		};
 	}

@@ -12,10 +12,11 @@
 		
 		function checkForm(form) {
 			const title = form.title.value;
-			const intro = form.intro.value;
 			const text = form.text.value;
+			const introText = form.introText.value;
 			
-			if (title.length < 4 || intro.length < 4 || text.length < 4) {
+			
+			if (title.length < 4 || introText.length < 4 || text.length < 4) {
 				alert ("Введены не корректные данные");
 				return false;
 			} else
@@ -39,10 +40,8 @@
 		$route = new Routes();
 		
 		$route->addRoute("id", function($id) {
-			$sql = new Sql();
-			$article = $sql->getArticle($id);
-			$view = new ArticleClass ($article);
-			$view->render();
+			$obj = Article::selectId($id);
+			Article::renderId($obj);
 		});
 		
 		$route->addRoute("action", function ($id) {

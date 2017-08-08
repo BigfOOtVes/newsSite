@@ -6,7 +6,7 @@
 		<br>
 		<label for="intro">Втупление новости</label>
 		<br>
-		<textarea cols="60" rows="10" name="intro"></textarea>
+		<textarea cols="60" rows="10" name="introText"></textarea>
 		<br>
 		<label for="text">Текст новости</label>
 		<br>
