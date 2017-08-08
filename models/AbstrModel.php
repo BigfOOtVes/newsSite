@@ -8,10 +8,6 @@ abstract class AbstrModel {
 	protected static $table;
 	protected $data = [];
 
-	public function countData() {
-		return count($this->data);
-	}
-
 	public function __set($key, $value) {
 		$this->data[$key] = $value;
 	}
